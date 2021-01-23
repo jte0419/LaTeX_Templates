@@ -1,0 +1,426 @@
+% PROJECT TEMPLATE
+% Written by: JoshTheEngineer
+% Updated on: 01/23/21
+
+\documentclass[letterpaper,12pt]{article}
+
+% Load packages
+% - See complete list of packages at: https://www.ctan.org/pkg/
+\usepackage[left=1in,right=1in,top=1in]{geometry}
+\usepackage{graphicx}					% Enhanced support for graphics
+\usepackage{float}						% Improved interface for floating objects
+\usepackage{amsmath}					% AMS mathematical facilities for Latex
+\usepackage{enumitem}					% Control layout of itemize, enumerate, description
+\usepackage{cite}						% Improved citation handling in Latex
+\usepackage{mathtools}					% Mathematical tools to use with amsmath
+\usepackage{color}						% Colour control for Latex documents
+\usepackage[makeroom]{cancel}			% Place lines through maths formulae
+\usepackage{soul}						% Hyphenation for letterspacing, underlining, and more
+\usepackage{dashbox}					% Draw dashed boxes
+\usepackage{microtype}					% Subliminal refinements towards typographical perfection
+\usepackage[table]{xcolor}				% Driver-independent color extensions for Latex and PDFLatex
+\usepackage{subcaption}					% Support for sub-captions
+\usepackage{longtable}					% Allow tables to flow over page boundaries
+\usepackage{listings}					% Typeset source code listings using Latex
+
+% Extensive support for hypertext
+% - Link: https://www.overleaf.com/learn/latex/hyperlinks
+% - Uncomment the first option below if you don't want colored links or outline boxes
+% - Uncomment the second option below if you do want colored links and outline boxes
+%\usepackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\usepackage{hyperref}	
+
+% Path for graphics/figures
+\graphicspath{{./Figures_PNG/}			% Path(s) for all figure files
+			  {./Figures_PDF/}}
+\restylefloat{figure}					% To re-style the 'figure' float
+
+% New commands to keep things shorter in document
+% - Link: https://www.overleaf.com/learn/latex/Commands
+\newcommand\dboxed[1]{\dbox{\ensuremath{#1}}}
+\newcommand{\volume}{\mathop{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}\nolimits}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 	% Defines a new command for the horizontal lines
+
+% Define colors for code
+% - Link: https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+% - Type 'Color Picker' into Google, and copy your RGB values here
+\definecolor{myBackColor}{rgb}{0.95,0.95,0.92}	% Lower-case rgb uses values between 0 and 1
+\definecolor{myGreen}{RGB}{28,172,0}			% Upper-case RGB uses values between 0 and 255
+\definecolor{myPurple}{RGB}{170,55,241}
+\definecolor{myBlue}{RGB}{0,50,255}
+
+% Define how your code will display
+% - Link: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\lstset{
+	language         = MATLAB,					% Use this keyword to format for MATLAB
+%	frame            = single,					% Uncomment this if you want a box around the code
+	backgroundcolor  = \color{myBackColor},		% Background color
+	basicstyle       = \ttfamily\footnotesize,	% Size and style for code
+    breaklines       = true,					% Sets automatic line breaking
+    keywordstyle     = \color{myBlue},			% Keyword color
+    identifierstyle  = \color{black},			% Identifier color
+    stringstyle      = \color{myPurple},		% String color
+    commentstyle     = \color{myGreen},			% Comment color
+    showstringspaces = false,					% Without this, symbol in place of spaces
+    numbers          = left,					% Location of line numbers
+    numberstyle      = \tiny \color{black},		% Size and color of the line numbers
+    numbersep        = 9pt, 					% How far the line numbers are from the text
+    tabsize          = 4						% Sets default tab size
+}
+
+% Begin the documents
+\begin{document}
+
+\begin{titlepage}
+
+% Center everything on the page
+\center
+
+% Show the title
+\HRule \\[0.6cm]
+{ \huge \textbf{This is the Title of Your Report} \\[0.4cm] \textit{This Could be a Second Line}}\\[0.4cm]
+\HRule \\[1.5cm]
+
+% Show the author
+\Large \emph{Author:}\\
+JoshTheEngineer\\[1cm]
+
+% Show the published date
+\Large \emph{Published:}\\
+October $32^\text{nd}$, $2021$ \\[3cm]
+
+% Show the JTE logo
+\includegraphics[width=8cm]{JTE_Logo_PNG.png}\\[1cm]
+
+% Fill the rest of the page with whitespace
+\vfill
+
+% End of the title page
+\end{titlepage}
+
+% Table of contents, list of figures, list of tables
+% - Link: https://www.overleaf.com/learn/latex/Table_of_contents
+% - Link: https://www.overleaf.com/learn/latex/lists_of_tables_and_figures
+\pagestyle{headings}				% Specifies page numbering style
+\pagenumbering{roman}				% Specifies style of page numbers
+\tableofcontents					% Display table of contents
+\newpage							% Start a new page
+\listoffigures						% Start a list of figures
+\newpage							% Start a new page
+\listoftables						% Start a list of figures
+\newpage							% Start a new page
+
+% Start the actual bulk of the article
+% - Link: https://www.overleaf.com/learn/latex/Page_numbering
+\pagestyle{headings}				% Use normal Latex headings on each page (start from 1)
+\pagenumbering{arabic}				% Specifies style of page numbers
+
+% ======================
+% ==== Introduction ====
+% ======================
+\section{Introduction}
+\label{sec:Introduction}
+
+We will start this template with the introduction section.  Before beginning, make sure you're looking at both the .tex and .pdf files at the same time, and not just the .pdf file.  Take a look at the title page.  The layout is entirely up to you, but this template gives you a head-start.  This is just what I have decided I like my personal documents to look like.  It's repeatable, includes a title/subtitle, author name, date, and an image (my logo).  You can edit the .tex document to format this however you'd like.  You can also remove the image by simply commenting that line out.  This document will not include everything you will likely want to know; it is intended to get you started with writing up your own projects or lab reports, using the most common tools you'll need.
+
+You'll notice throughout the document that links/references are outlined in either red or green.  This is a feature of the ``hyperref'' package.  Near the top of the document, I have also included an option that removes the colors and the outlines.  You'll just need to comment that line in, and comment out the bare-bones package call.  Run the document again and those colors and borders should disappear.
+
+In order to reference this section, we can write Section \ref{sec:Introduction}.  Perhaps you want to explain what the next sections will be about.  Below is a method for creating a little mini-section that does not actually create a sub-section, which we will look at later in Section \ref{sec:Including_Figures}.  You can play around with the spacing and look of the text.
+
+% =======================
+% ==//== EQUATIONS ==//==
+% =======================
+\vspace{1em}
+\noindent \emph{Section \ref{sec:Including_Equations}: Including Equations}
+\vspace{1em}
+
+In this section we'll look at how to include equations in our document, both in-line and stand-alone.  We will also show how to reference equations in the text.  Note how I reference the section at the header of this mini-section.  If you move the section somewhere else in your paper, the section number displayed here will automatically update.
+
+% =====================
+% ==//== FIGURES ==//==
+% =====================
+\vspace{1em}
+\noindent \emph{Section \ref{sec:Including_Figures}: Including Figures}
+\vspace{1em}
+
+In this section, we'll see how to include figures, add captions, change their size, and reference them in the text.  We will also see how to include multiple sub-figures in one figure.
+
+% =============================
+% ==== INCLUDING EQUATIONS ====
+% =============================
+% - Link: https://www.overleaf.com/learn/latex/mathematical_expressions
+% - Link: https://en.wikibooks.org/wiki/LaTeX/Mathematics
+\section{Including Equations}
+\label{sec:Including_Equations}
+
+You're probably going to want to be able to include equations in your document.  Luckily, this is super easy.  If you have a simple equation that will fit nicely into the body of the text, you can simply include the equation as follows: $x^2 + y^2 = z^2$.  Note that this equation won't be referenced elsewhere in the text though.  If you have an equation you want to be able to reference, we can write a stand-alone equation as follows.
+
+\begin{equation}
+x^2 + y^2 = z^2
+\label{eq:First_Eqn}
+\end{equation}
+
+\noindent If you want to reference this equation, you can either do so by citing Eq. \ref{eq:First_Eqn} using ``ref'', or by citing Eq. \eqref{eq:First_Eqn} using ``eqref''; I tend to prefer the latter.  Note that if you run your document and question marks appear where you think a reference should be, simply run the document again.  The same goes for figures and references, discussed in Section \ref{sec:Including_Figures} and Section \ref{sec:Including_References}, respectively.
+
+If you want to align two equations, for example at the equals sign, we can use the ``aligned'' environment as shown below.  Note that you can also use the ``align'' environment.  There are so many options for formatting; just look online.
+
+\begin{equation}
+\begin{aligned}
+	\frac{T_0}{T} &= \left[1+\frac{\gamma-1}{2}M^2\right] \\
+	\frac{P_0}{P} &= \left[1+\frac{\gamma-1}{2}M^2\right]^{\frac{\gamma}{\gamma-1}}
+\end{aligned}
+\end{equation}
+
+Here are some more advanced equations below, just to show you how you can write them.  Note that the ``V'' with a horizontal line through it ($\volume$) is the symbol for volume, and is defined using the ``newcommand'' function near the top of this document.  You can define new commands for a bunch of things if you think you'll be typing it over and over again in your document.
+
+\begin{equation}
+	\frac{\partial}{\partial t} \iiint\limits_{\volume} \rho \vec{V} d\volume + \iint\limits_S \rho \vec{V} \left(\vec{V} \cdot d\vec{S}\right) + \iint\limits_S P d\vec{S} = 0
+\end{equation}
+
+\noindent Here is the equation in vector form.  It's now boxed.
+
+\begin{equation}
+	\boxed{\frac{\partial (\rho \vec{V})}{\partial t} + \nabla \cdot (\rho \vec{V} \vec{V}) + \nabla P = 0}
+\end{equation}
+
+\noindent This next equation won't have an equation number because we added an asterisk.  This one also has a dashed box.
+
+\begin{equation*}
+	\dboxed{\nabla \cdot (\rho \vec{V} \vec{V}) = \rho \vec{V} \cdot \nabla \vec{V} + \vec{V}[\nabla \cdot (\rho \vec{V})]}
+\end{equation*}
+
+% ===========================
+% ==== INCLUDING FIGURES ====
+% ===========================
+% - Link: https://www.overleaf.com/learn/latex/Inserting_Images
+% - Link: https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+\section{Including Figures}
+\label{sec:Including_Figures}
+
+Here we will include some figures.  We will split these up into two sub-sections, where in Section \ref{subsec:Single_Figure} we will display a single figure, and in Section \ref{subsec:Multiple_Figures} we will display multiple sub-figures.  Oh look, that's how you make sub-sections and reference them.  Take a look at the \textit{Contents} section near the beginning of the document to see how it displays sections and sub-sections.
+
+% -----------------------
+% ---- Single Figure ----
+% -----------------------
+\subsection{Single Figure}
+\label{subsec:Single_Figure}
+
+The ease of adding figures and having them display correctly is one of the main draws of using \LaTeX \, to compile your documents.  Here, we will start with the display of a single image.  We can use the ``label'' field to reference Fig. \ref{fig:Single_Figure}.
+
+% FIGURE: Single figure example
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.2\linewidth]{Single_Figure.PNG}
+    \caption[This single-figure text will show up in the \textit{List of Figures}.]{This is the caption for the single figure.}
+    \label{fig:Single_Figure}
+\end{figure}
+
+I tend to like to use the file name as the entry to the label of that figure.  It makes it easier for me to reference the figures in the text, since I know what the figures are called, and the label is the same name, just with ``fig:'' prepended.  I'm making this figure small here so it doesn't take up a bunch of space, but you should play around with the size of the figure as shown in the ``includegraphics'' command.  The caption will appear below the figure, and is included in the braces.  The text included in the brackets is what you will see in the \textit{Table of Figures}.  This means you can customize each separately if you want.
+
+% --------------------------
+% ---- Multiple Figures ----
+% --------------------------
+\subsection{Multiple Figures}
+\label{subsec:Multiple_Figures}
+
+To include multiple figures is very similar to how we included a single figure.  We will be using ``subfigure'' here, as displayed below in Fig. \ref{fig:Multiple_Figures}.  In this example, I'll be displaying my logo image in .png form (Fig. \ref{fig:JTE_Logo_PNG}) and in .pdf form (Fig. \ref{fig:JTE_Logo_PDF}).  When displaying two figures next to one another in this example, we can specify each sub-figure's size, which we say here is $0.45$ the size of the width of the text column.  This gives each sub-figure a bin that's almost half the size of the page.
+
+% FIGURE: 2 x 1 example
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+    	\centering
+        \includegraphics[width=0.8\textwidth]{JTE_Logo_PNG.PNG}
+        \caption{}
+        \label{fig:JTE_Logo_PNG}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+    	\centering
+        \includegraphics[width=0.8\textwidth]{JTE_Logo_PDF.PDF}
+        \caption{}
+        \label{fig:JTE_Logo_PDF}
+    \end{subfigure}
+ 	
+    \caption{The image of (a) is a .png file, while the image of (b) is a .pdf file.}
+    \label{fig:Multiple_Figures}
+\end{figure}
+
+Now, you'll note that the images are actually slightly different sizes due to the way I saved the .pdf file.  This looks a little weird in Fig. \ref{fig:Multiple_Figures}, and I don't like it.  However, we can force them to be the same height by using a very similar implementation as seen in Fig. \ref{fig:Multiple_Figures_2x2}, where I'm also going to be including an extra row of images to show you how to do that.
+
+% FIGURE: 2 x 2 example
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=4cm]{JTE_Logo_PNG.PNG}
+        \caption{}
+        \label{fig:JTE_Logo_PNG_a}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[height=4cm]{JTE_Logo_PDF.PDF}
+        \caption{}
+        \label{fig:JTE_Logo_PDF_b}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.45\textwidth}
+    	\centering
+        \includegraphics[height=4cm]{JTE_Logo_PNG.PNG}
+        \caption{}
+        \label{fig:JTE_Logo_PNG_c}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+    	\centering
+        \includegraphics[height=4cm]{JTE_Logo_PDF.PDF}
+        \caption{}
+        \label{fig:JTE_Logo_PDF_d}
+    \end{subfigure}
+ 	
+    \caption{The images of (a,b) are not centered but have the same height, while the images of (c,d) are centered and have the same height.}
+    \label{fig:Multiple_Figures_2x2}
+\end{figure}
+
+Also note what the inclusion of the extra ``centering'' command does to the images in Fig. \ref{fig:JTE_Logo_PNG_c} and Fig. \ref{fig:JTE_Logo_PDF_d}.  To make these images fill out more space, simply increase the ``height'' value.  You can also set a ``width'' value instead; it just depends on how you want to align the images and have them displayed.  As mentioned earlier, there is a lot of customization you can do, and this just gives you a taste.
+
+% ==========================
+% ==== INCLUDING TABLES ====
+% ==========================
+% - Link: https://www.overleaf.com/learn/latex/tables
+% - Link: https://en.wikibooks.org/wiki/LaTeX/Tables
+% - Link: https://www.tablesgenerator.com/
+\section{Including Tables}
+\label{sec:Including_Tables}
+
+Let's add a couple tables, which if you decided to include the appropriate command earlier, will be added to the \textit{List of Tables} at the beginning of the document.  We will show two tables here, one simple and the other colored.  I prefer the simpler table nowadays, although I have used the colored table in the past.  The simple table is shown first in Table \ref{tab:Simple}, and shows how you can use both normal text and math mode in the table.  There are lots of options to change if you so desire.
+
+% TABLE: Simple
+\begin{table}[H]
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{12pt}
+\renewcommand{\arraystretch}{1.5}
+{\rowcolors{2}{white}{white}
+\begin{center}
+\begin{tabular}{cc}
+\hline
+\rowcolor{white}
+\color{black} Name & \color{black} Description \\[1ex]
+\hline
+Black Dots 							& Boundary points (B) for panel \textit{a}				\\
+White Dot							& Control point (C) for panel \textit{a}				\\
+$\bar{S}_a$ 						& Panel \textit{a} length 								\\
+$s_a$								& Distance progress variable along panel \textit{a}		\\
+\hline
+\end{tabular}
+\end{center}
+}
+\caption{This is the simplest format for a table, and what I consider to be the most easily readable.}
+\label{tab:Simple}
+\end{table}
+
+The other style is the colored table, which is functionally the same as the previous table, but has a little more customization of the colors.  This can mimic the types of tables you'll have seen in Microsoft Office products, which have options for alternating colors for rows to increase clarity.  In Table \ref{tab:Colored}, I'm just using a simple black/gray/white color scheme, but you can change this.  Note that the normal white text on the black background is a little difficult to read.  I have bolded the word ``Background'' to show how to make it stand out a little more, but it's still not the best.  Note also that you can make references inside your table.  In this one, I reference a couple sections and sub-sections of this paper in the ``Section'' column.
+
+% TABLE: Colored
+\begin{table}[H]
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{12pt}
+\renewcommand{\arraystretch}{1.5}
+{\rowcolors{2}{white}{lightgray}
+\begin{center}
+\begin{tabular}{| c | c | c | c |}
+\hline
+\rowcolor{black}
+\color{white} Section & \color{white} Object & \color{white}\textbf{Background} & \color{white}Camera \\[1ex]
+\hline
+\ref{subsec:Single_Figure}			& Candle 		& IKEA Chair 	& DSLR			\\
+\ref{subsec:Multiple_Figures}		& Tea			& Lamp Shade	& DSLR			\\
+\ref{sec:Including_Code}			& Hair Dryer	& Blanket		& Phone			\\\hline
+\end{tabular}
+\end{center}
+}
+\caption{This table can include alternating colors.}
+\label{tab:Colored}
+\end{table}
+
+Again, as mentioned throughout this document, you can play around with the settings to fit your preferences.  Tables can be a little more difficult to get exactly the output that you want, but only because there is so much customization you can do.  The internet is your friend.
+
+% ========================
+% ==== INCLUDING CODE ====
+% ========================
+% - Link: https://www.overleaf.com/learn/latex/code_listing
+% - Link: https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\section{Including Code}
+\label{sec:Including_Code}
+
+Earlier in the document (near the top), we defined some settings using the ``listings'' package that would help format code we want to include in our document.  Below is an example of a snippet of MATLAB code.  As with the tables of Section \ref{sec:Including_Tables}, you can customize how you want your code to look.  I've settled for having my code display with the correct colors for comments and other function names, along with line numbers on the left side so I can reference them in the text if needed.  However, feel free to update and customize as you see fit.  There are some pre-defined options/settings online if you search for them.
+
+\vspace{1em}
+\par\noindent\rule{\textwidth}{0.4pt}
+
+\lstset{basicstyle=\small}
+\begin{lstlisting}[language=MATLAB]
+% Find geometric quantities of airfoil
+XC   = zeros(numPan,1);
+YC   = zeros(numPan,1);
+S    = zeros(numPan,1);
+phiD = zeros(numPan,1);
+for i = 1:1:numPan
+    XC(i)   = 0.5*(XB(i)+XB(i+1));
+    YC(i)   = 0.5*(YB(i)+YB(i+1));
+    dx      = XB(i+1)-XB(i);
+    dy      = YB(i+1)-YB(i);
+    S(i)    = (dx^2 + dy^2)^0.5;
+	phiD(i) = atan2d(dy,dx);
+    if (phiD(i) < 0)
+        phiD(i) = phiD(i) + 360;
+    end
+    str = 'Here is a string';
+end
+\end{lstlisting}
+
+\par\noindent\rule{\textwidth}{0.4pt}
+\vspace{1em}
+
+Note that I include horizontal lines both above and below the code snippet.  This helps isolate it from the normal text of the document a little.  In the ``listings'' definition at the beginning of the document, there is a line you can comment in that will place a frame/border around the code, in which case you may not need the horizontal lines.  I have also added a command which adds a little space above the top line and below the bottom line.  This isolates the table a little from the text.  You can comment these out and see that the spacing becomes tighter.
+
+% ==============================
+% ==== INCLUDING REFERENCES ====
+% ==============================
+% - Link: https://docs.jabref.org/
+% - Link: https://www.overleaf.com/learn/latex/bibliography_management_with_bibtex
+% - Link: https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX
+% - Link: https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+\section{Including References}
+\label{sec:Including_References}
+
+I use the free program JabRef to manage my references/bibliography.  To include references in your file, you can use the ``cite'' command, as we will do here for a random paper \cite{2013_Bathel_CONF}.  Note that you can also cite multiple papers at the same time \cite{2015_Garbeff_CONF,2010_Hargather_CONF}.  As long as you use the correct citation key, you can move citations around as much as you like, and they will re-order appropriately and be updated in the ``References'' section.
+
+If for some reason, your document isn't updating the references like you think it should, there are two things to try.  First, from the drop-down menu in Texmaker, select ``BibTeX'' and then press the run button a few times.  Then select ``Quick Build'' again and run the document.  If this doesn't work, another option that can help is to delete the .bbl file from your directory (\textit{not} the .bib file!).  Then you can again select the ``BibTeX'' option, click it a few times which should create the .bbl file that you just deleted, and then run the ``Quick Build'' again (or maybe a couple times depending on what you have button set up to do).  Sometimes I have had to delete all the unnecessary files in the directory and then run the document again from scratch.  This means deleting all the files with the following extensions: .aux, .bak (.bib.bak), .bbl, .lof, .lot, .out, .blg, .txt, .toc, and .synctex, and .pdf.  You should only have your .tex and .bbl files now, along with your figure files or folders.  Run the document in Texmaker (again, maybe a couple times depending on how you have it set up), and your references should appear correctly.
+
+% ====================
+% ==== APPENDICES ====
+% ====================
+% - Link: http://www.texfaq.org/FAQ-appendix
+\newpage
+\appendix
+
+% ------------------------
+% --//-- Appendix A --\\--
+% ------------------------
+\section{More Discussion}
+
+This is the first appendix section.  It is labeled with the letter \textit{A}, and appears in the \textit{Contents} section near the beginning of the paper.
+
+% ------------------------
+% --//-- Appendix B --\\--
+% ------------------------
+\section{Even More Discussion}
+
+This is another appendix section, is labeled with the letter \textit{B}, and also appears in the \textit{Contents} section.  Keep adding sections as you need them
+
+% ====================
+% ==== REFERENCES ====
+% ====================
+\newpage
+\bibliographystyle{abbrv}
+\bibliography{./JTE_Bib}
+
+
+\end{document}
