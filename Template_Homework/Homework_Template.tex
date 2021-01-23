@@ -1,0 +1,117 @@
+\documentclass[letterpaper,12pt]{article}
+
+% Load packages
+\usepackage[left=1.5in,top=1in]{geometry}
+\usepackage{graphicx}							% https://ctan.org/pkg/graphicx?lang=en
+\usepackage{float}								% https://ctan.org/pkg/float
+\usepackage{amsmath}							% https://ctan.org/pkg/amsmath
+\usepackage{enumitem}							% https://ctan.org/pkg/enumitem
+\usepackage{mathtools}							% https://ctan.org/pkg/mathtools
+\usepackage{color}								% https://ctan.org/pkg/color
+\usepackage{soul}								% https://ctan.org/pkg/soul
+\usepackage{microtype}							% https://ctan.org/pkg/microtype
+
+% Misc
+\graphicspath{{./Figures/}}						% Location folder of all figures in paper
+\restylefloat{figure}
+
+\begin{document}
+
+% Create header of document
+\begin{center}									% Center the header
+\textbf{Class Name: Homework 1} \\				% Class name and homework number
+\textbf{Thermodynamics Review} 	\\				% Homework name
+\textbf{Assigned: 10/32/21~~~~~~ Due: 10/33/21}	% Assigned and due dates
+\end{center}
+
+% ===================
+% ==== PROBLEM 1 ====
+% ===================
+
+\noindent \textul{\textbf{Problem 1}} \\
+
+\noindent Start with the following equation for the 1D energy equation.
+
+\begin{equation}
+	h_1 + \frac{1}{2} u_1^2 + q = h_2 + \frac{1}{2} u_2^2
+\end{equation}
+
+\noindent For an adiabatic flow, show that the stagnation temperature is constant ($T_{01} = T_{02}$).  What other assumption do you need to make to get to this conclusion? \\
+
+% ===================
+% ==== PROBLEM 2 ====
+% ===================
+
+\noindent \textul{\textbf{Problem 2}} \\
+
+\noindent Start with the equation defining specific enthalpy.  Assuming a calorically perfect gas, derive the following equation.  Show all steps.
+
+\begin{equation}
+	C_p - C_v = R
+\end{equation}
+
+\noindent Derive the equation for the specific heat at constant pressure as a function of specific heat ratio and specific gas constant.  Do the same for specific heat at constant volume.
+
+\begin{equation}
+\begin{aligned}
+	C_p &= C_p\left(\gamma,R\right) \\
+	C_v &= C_v\left(\gamma,R\right) \\
+\end{aligned}
+\end{equation}
+
+\noindent Use the following equation and the equation derived above.
+
+\begin{equation}
+	\gamma = \frac{C_p}{C_v}
+\end{equation}
+
+% ===================
+% ==== PROBLEM 3 ====
+% ===================
+
+\noindent \textul{\textbf{Problem 3}} \\
+
+\noindent The boundary work during a reversible process can be derived as:
+
+\begin{equation}
+	W_{b,12} = \int_1^2{Pdv}
+\end{equation}
+
+\noindent To solve this integral, you need to know the functional relationship between $P$ and $v$ ($P = f(v)$), which is simply the equation of a line on a P-v diagram.  The expression for a curve on the P-v diagram for a polytropic process is the following, where $C$ is a constant.
+
+\begin{equation}
+	Pv^n = C
+\end{equation}
+
+\noindent When the process is isentropic, the exponent is equal to the ratio of specific heats.  Assume a calorically perfect gas.
+
+\begin{equation}
+\begin{aligned}
+	n = \gamma & = \frac{C_p}{C_v} \\
+	Pv^{\gamma} &= C
+\end{aligned}
+\end{equation}
+
+\begin{enumerate}[label=(\alph*)]
+\item Using the definition of boundary work and the relationship between $P$ and $v$ for an isentropic process, derive the expression for boundary work, seen below.
+\begin{equation}
+	W_{b,12} = -C_v\left(T_2-T_1\right)
+\end{equation}
+\item Discuss the resulting sign of the equation derived in part (a) for a compression process, and then for an expansion process.  Does it make sense?
+\item The net work over the Brayton cycle can be found by integrating each individual process (e.g. integrate from state 2 to state 3), and then summing them together.
+\begin{equation}
+	W_{b,total} = W_{b,12} + W_{b,23} + W_{b,34} + W_{b,41}
+\end{equation}
+Assume air (perfect gas) with $R = 287 \frac{J}{kg \cdot K}$ and $\gamma = 1.4$.  Use the values given below to solve for the net work per unit mass over the cycle.
+\begin{equation}
+\begin{aligned}
+	P_1 &= 26,500~\mathrm{Pa}~~~~~~~~~~& T_1 &= 223~\mathrm{K} \\
+	P_2 &= 357,750~\mathrm{Pa}~~~~~~~~~~& T_2 &= 660~\mathrm{K} \\
+	P_3 &= 357,750~\mathrm{Pa}~~~~~~~~~~& T_3 &= 1400~\mathrm{K} \\
+	P_4 &= 26,500~\mathrm{Pa}~~~~~~~~~~& T_4 &= 900~\mathrm{K} \\
+\end{aligned}
+\end{equation}
+\end{enumerate}
+
+
+\end{document}
