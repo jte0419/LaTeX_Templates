@@ -1,6 +1,6 @@
 # LaTeX_Templates
 
-This repository contains LaTeX templates so you can quickly get started without worrying too much about the details.  To get an introduction to using LaTeX for document creation, you can watch my YouTube video on the topic (coming soon).
+This repository contains LaTeX templates so you can quickly get started without worrying too much about the details.  To get an introduction to using LaTeX for document creation, you can watch my [YouTube video](https://www.youtube.com/watch?v=qjLqM1YYNN4) on the topic.
 
 ## Homework Template
 
